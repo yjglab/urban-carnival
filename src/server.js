@@ -7,8 +7,14 @@ const handleHome = (req, res) => {
 const handleLogin = (req, res) => {
   return res.send("login");
 };
+const logger = (req, res, next) => {
+  console.log(`${req.url}`);
+  next();
+};
+app.use(logger);
 app.get("/", handleHome);
 app.get("/login", handleLogin);
+
 const handleListening = () => {
   console.log("===Listening OK");
 };
