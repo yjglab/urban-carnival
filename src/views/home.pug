@@ -1,6 +1,10 @@
 extends base
+include mixins/testdata
 
 block content 
     div home
-    input
-    button ss
+    each data in testData
+        +data(data)
+    else 
+        span nothing.
+    
