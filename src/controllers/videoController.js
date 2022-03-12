@@ -32,7 +32,9 @@ export const trending = (req, res) => {
   res.render("home", { pageTitle: "Home", testData });
 };
 export const see = (req, res) => {
-  res.render("watch");
+  const { id } = req.params;
+  const data = testData[id - 1];
+  res.render("watch", { pageTitle: `Watching ${data.title}` });
 };
 export const edit = (req, res) => {
   res.render("edit");
